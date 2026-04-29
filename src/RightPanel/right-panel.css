@@ -1,0 +1,6 @@
+.right-panel__container{
+    background: #121212;
+    width: 240px;
+    display: flex;
+    justify-content: flex-end;
+}

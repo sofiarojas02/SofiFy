@@ -1,0 +1,162 @@
+.library__container{
+    background: #121212;
+    width: 255px;
+}
+
+.library__header{
+    height: 50px;
+    width: 100%;
+    border-bottom: .5px solid white;
+    
+}
+
+.library-icon{
+    transition: .3s all ease;
+}
+
+.library-icon:hover{
+    color: white;
+}
+
+.header__button{
+    height: 25px;
+    width: 25px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.header__button:hover .library__icon{
+    color: white;
+}
+
+.header__button:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.library__icon{
+    height: var(--small);
+    width: var(--small);
+}
+
+.plus-icon{
+    height: 30px;
+    width: 30px;
+}
+
+/* Pildoras */
+
+.pills__button{
+    border: none;
+    font-size: var(--small);
+    font-weight: 600;
+    color: #ddd;
+    background: #343434;
+    padding: 3px 10px;
+}
+
+.pills__button:hover{
+    background: #454545;
+    color: white;
+}
+
+/* biblioteca lista */
+
+.library__list {
+    scrollbar-gutter: stable; /* Reserva el espacio para que no "salte" el contenido */
+}
+
+.library__list::-webkit-scrollbar {
+    width: 12px; 
+}
+
+.library__list::-webkit-scrollbar-thumb{
+    background: transparent; 
+}
+
+.library__list:has(.list__item:hover)::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3) ;
+}
+
+
+.library__list::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.4) ;
+}
+
+
+.library__list{
+    padding-right: 0 !important;
+}
+
+
+
+.list__item--title{
+    font-size: var(--small);
+    font-weight: 600;
+}
+
+.list__item--subtitle{
+    font-size: var(--small);
+    color: #aaa;
+}
+
+.list__item--img{
+    height: 40px;
+    width: 40px;
+}
+
+.list__item:hover{
+    background: #282828 !important;
+    cursor: pointer;
+}
+
+.small-letter{
+    font-size: var(--small);
+}
+
+.hover-icon{
+    transition: .3s all ease;
+    margin-left: 3px;
+}
+
+.hover-icon:hover{
+    background-color: #212121 !important;
+}
+
+.hover-icon:hover .SearchIcon{
+    color: white;
+}
+
+.librarySearch{
+    position: relative;
+}
+
+.librarySearch__button {
+    z-index: 1;
+}
+
+
+
+.librarySearch__input{
+    width: 0;
+    opacity: 0;
+    border: none;
+    background: #242424;
+    color: white;
+    position: absolute;
+    padding: 6px 0 6px 40px;
+    border-radius: 4px;
+    transition: all .5s ease, opacity 0.2s ease, padding 0.3s ease;
+    outline: none;
+}
+
+
+
+.librarySearch__input--open{
+    width: 170px;
+    opacity: 1;
+    pointer-events: auto; 
+}
+
