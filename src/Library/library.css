@@ -1,3 +1,20 @@
+/* .esconder{
+    display: none !important;
+} */
+
+.normal-state{
+    opacity: 1;
+    max-width: 200px;
+    transform: translateX(0)
+}
+
+.colapsed-state{
+    opacity: 0;
+    max-width: 0;
+    transform: translateX(20px)
+}
+
+/* Header de biblioteca */
 .library__container{
     background: #121212;
     width: 255px;
@@ -8,6 +25,30 @@
     width: 100%;
     border-bottom: .5px solid white;
     
+}
+
+/* Contenedor del disparador de menu*/
+
+.library__trigger h2 {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap; /* Evita que el texto salte de línea */
+}
+.library__button--toggle {
+    background-color: transparent;
+    transition: all 0.3s ease;
+    transform: translateX(-100%); 
+    position: absolute;
+    opacity: 0;
+}
+
+.library__trigger:hover .library__button--toggle {
+    transform: translateX(0); 
+    position: relative;
+    opacity: 1;
+}
+
+.library__trigger:hover h2 {
+    color: white;
 }
 
 .library-icon{
@@ -41,10 +82,49 @@
     width: var(--small);
 }
 
+
+
 .plus-icon{
     height: 30px;
     width: 30px;
 }
+
+/*  Menu de agregar a biblioteca */
+.plus__menu{
+    width: 460px;
+    background: #302f2f;
+    position: absolute;
+    margin: 8px;
+    border-radius: 8px;
+    padding: 3px;
+}
+
+
+.plus__option--icon {
+    width: 40px;
+    height: 40px;
+    background: #47474788;
+}
+
+.plus__menu--option {
+    background: transparent;
+    margin: 0 2px;
+    border-radius: 8px;
+}
+
+.plus__menu--option:hover {
+    background: #5a5a5a;
+}
+
+.plus__option--text h3{
+    font-size: var(--medium);
+}
+
+.plus__option--text p{
+    font-size: var(--small);
+}
+
+
 
 /* Pildoras */
 
@@ -160,3 +240,23 @@
     pointer-events: auto; 
 }
 
+/* Plus menu */
+
+.Modal{
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+}
+
+.libraryModal__element{
+    display: flex;
+    flex-direction: column;
+}
+
+.libraryModal__element input{
+    margin: 8px 0;
+}
+
+.libraryModal__form{
+    width: 300px;
+}

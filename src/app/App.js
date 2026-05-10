@@ -13,7 +13,7 @@ function App() {
       <div className='page__container vh-100  d-flex flex-column bg-black text-white'>
         <NavBar />
 
-        <div className='page__container d-flex  overflow-hidden flex-grow-1 gap-2 p-1'>
+        <div className='page__body d-flex  overflow-hidden flex-grow-1 gap-2 p-1'>
           
           <Library />
           <Main />
