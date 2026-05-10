@@ -8,51 +8,46 @@ import {ReactComponent as SearchSVG} from "../assets/search.svg"
 import {ReactComponent as ListSVG} from "./list.svg"
 
 
-// const items = [
-//     { 
-//         title: 'Tus me gusta',
-//         subtitle: 'Playlist • 2 canciones',
-//         img: 'https://www.oldskull.net/wp-content/uploads/2015/01/Rock_Covers-ilustracion-oldskull-15.jpg',
-//         type: 'playlist'
-//     },
-//     { 
-//         id: 2,
-//         title: 'Daily Mix 1',
-//         subtitle: 'Hecho para Sofía',
-//         img: 'https://www.oldskull.net/wp-content/uploads/2015/01/Rock_Covers-ilustracion-oldskull-15.jpg',
-//         type: 'playlist',
-//     },
-    
-//     { 
-//         id: 3,
-//         title: 'Rock Classics',
-//         subtitle: 'Playlist • Spotify',
-//         img: 'https://www.oldskull.net/wp-content/uploads/2015/01/Rock_Covers-ilustracion-oldskull-15.jpg',
-//         type: 'playlist',
-//     },
-//         { 
-//         id: 4,
-//         title: 'Raimbow alternativo',
-//         subtitle: 'Playlist • Spotify',
-//         img: 'https://www.oldskull.net/wp-content/uploads/2015/01/Rock_Covers-ilustracion-oldskull-15.jpg',
-//         type: 'playlist',
-//     },
-//     { 
-//     id: 8,
-//     title: 'lolita Mix 1',
-//     subtitle: 'Hecho para Sofía',
-//     img: 'https://www.oldskull.net/wp-content/uploads/2015/01/Rock_Covers-ilustracion-oldskull-15.jpg',
-//     type: 'playlist',
-// },
-//     { 
-//     id: 9,
-//     title: 'lolita Mix 1',
-//     subtitle: 'Hecho para Sofía',
-//     img: 'https://www.oldskull.net/wp-content/uploads/2015/01/Rock_Covers-ilustracion-oldskull-15.jpg',
-//     type: 'playlist',
-// },
-// ];
+const itemsList = [
+    { 
+        title: 'Tus me gusta',
+        subtitle: 'Playlist • 2 canciones',
+        img: 'https://www.oldskull.net/wp-content/uploads/2015/01/Rock_Covers-ilustracion-oldskull-15.jpg',
+        type: 'playlist'
+    },
+    { 
+        id: 2,
+        title: 'Daily Mix 1',
+        subtitle: 'Hecho para Sofía',
+        img: 'https://www.oldskull.net/wp-content/uploads/2015/01/Rock_Covers-ilustracion-oldskull-15.jpg',
+        type: 'playlist',
+    },
+];
 
+
+const useLocalStorage = (itemName, initialValue) => {
+    const localStorageItems = localStorage.getItem(itemName)
+    let parsedItem;
+    
+    if(!localStorageItems){
+        localStorage.setItem(itemName, JSON.stringify(initialValue))
+        parsedItem = initialValue
+    }else {
+        parsedItem = JSON.parse(localStorageItems)
+    }
+    
+    const [item, setItem] = React.useState(parsedItem)
+
+
+    const saveItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem))
+
+    setItem(newItem)
+    }
+
+    return [item, saveItem];
+
+}
 
 
 function Library(){
@@ -68,13 +63,18 @@ function Library(){
         subtitle: '',
         img: '',
     })
+    const [error, setError] = React.useState(false)
 
-    const [items, setItems] = React.useState([{ 
-        title: 'Tus me gusta',
-        subtitle: '2 canciones',
-        img: 'https://www.oldskull.net/wp-content/uploads/2015/01/Rock_Covers-ilustracion-oldskull-15.jpg',
-        type: 'playlist'
-    }])
+    // const [items, setItems] = React.useState([{ 
+    //     title: 'Tus me gusta',
+    //     subtitle: '2 canciones',
+    //     img: 'https://www.oldskull.net/wp-content/uploads/2015/01/Rock_Covers-ilustracion-oldskull-15.jpg',
+    //     type: 'playlist'
+    // }])
+    
+
+
+    const [items, saveItems] = useLocalStorage('Items', itemsList)
 
 
 
@@ -117,10 +117,14 @@ function Library(){
             }
         }, [isSearchOpen])
 
+
+        //Abrir modal de libreria
         useEffect(()=>{
             const libraryModalOutside = (e) => {
                 if(libraryModalRef.current && !libraryModalRef.current.contains(e.target)){
                     setLibraryModal(false)
+                    setFormData({title: '', subtitle: '', img: ''})
+                    setError(false)
                 }
             }
 
@@ -130,9 +134,10 @@ function Library(){
         },[])
 
 
+
     const sortedItems = [...items].sort((a,b) => {
-        if (a.type === 'playlist' && b.type === 'artist') return -1;
-        if (a.type === 'artist' && b.type === 'playlist') return 1;
+        if (a.type === 'playlist' && b.type === 'artista') return -1;
+        if (a.type === 'artista' && b.type === 'playlist') return 1;
         return 0;
     }   )
 
@@ -144,14 +149,6 @@ function Library(){
         setIsSearchOpen(!isSearchOpen)
     }
 
-    // Función para agregar una nueva canción o artista a la biblioteca (simulada)
-    const addToLibrary = () => {
-        return (
-            <div>
-                <p>Función para agregar una nueva canción o artista a la biblioteca (simulada)</p>
-            </div>
-        )
-    }
 
 
     const openLibraryModal = (type) =>{
@@ -161,9 +158,13 @@ function Library(){
     }
 
     const addItemToLibrary = (newItem)=>{
-        setItems([...items, {...newItem, type: libraryModalType}])
-        setLibraryModal(false)
-        setFormData({title: '', subtitle: '', img: ''})
+        if(items.some(item => item.title.toLowerCase() === formData.title.toLowerCase())){
+            setError(true)
+        }else{
+            saveItems([...items, {...newItem, type: libraryModalType}])
+            setLibraryModal(false)
+            setFormData({title: '', subtitle: '', img: ''})
+        }
     }
 
     const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1)
@@ -205,15 +206,24 @@ function Library(){
                                     className='d-flex flex-column'>
 
                                         <div className='libraryModal__element'>
+                                            {error && (
+                                                <p className='text-danger'>Ya existe un {libraryModalType} con ese nombre</p>
+                                            )}
                                             <label>Titulo:</label>
                                             <input
                                             value={formData.title}
-                                            onChange={(e) => setFormData({...formData, title: e.target.value})}
+                                            // onSubmit={}
+                                            onChange={(e) => {
+                                                setFormData({...formData, title: e.target.value})
+                                                setError(false)
+                                            }
+                                                
+                                            } 
                                             ></input>
                                         </div>
 
                                         <div
-                                        className={`libraryModal__element ${libraryModalType === 'artist' && 'd-none'}`}
+                                        className={`libraryModal__element ${libraryModalType === 'artista' && 'd-none'}`}
                                         >
                                             <label>Hecho por:</label>
                                             <input
@@ -270,7 +280,7 @@ function Library(){
                                         <div 
                                         className='plus__option--text'
                                         role='button'
-                                        onClick={() => openLibraryModal('artist')}
+                                        onClick={() => openLibraryModal('artista')}
                                         >
                                             <h3 className='m-0 p-0 '>Artista</h3>
                                             <p className='m-0 p-0 text-secondary'>Guarda las canciones de tus artitas favoritos</p>
@@ -343,13 +353,13 @@ function Library(){
                         >
                             <div className='d-flex align-items-center'>
                                 <img 
-                                className={`list__item--img ${item.type === 'artist' ? 'rounded-circle' : 'rounded-3'}`}
+                                className={`list__item--img ${item.type === 'artista' ? 'rounded-circle' : 'rounded-3'}`}
                                 src={item.img ? item.img: 'https://www.oldskull.net/wp-content/uploads/2015/01/Rock_Covers-ilustracion-oldskull-15.jpg'} 
                                 alt={item.title} />
                             </div>
 
                             <div className=''>
-                                <h3 className='list__item--title m-0 mb-1'> {item.title} </h3>
+                                <h3 className='list__item--title m-0 mb-1'> {capitalize(item.title)} </h3>
                                 <p className='list__item--subtitle m-0'> {capitalize(item.type) + ' • ' + item.subtitle} </p>
                             </div>
 
