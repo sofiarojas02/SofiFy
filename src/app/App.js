@@ -2,7 +2,7 @@ import './App.css';
 import {NavBar} from '../NavBar'
 import { Library } from '../Library/Library';
 import { RightPanel } from '../RightPanel';
-import { Main } from '../Main';
+import { Main } from '../Main/Main';
 import { Reproductive } from '../Reproductive';
 
 
