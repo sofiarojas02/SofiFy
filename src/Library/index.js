@@ -6,8 +6,9 @@ import {ReactComponent as PlusIcon} from './plus.svg'
 import {ReactComponent as ExpandIcon} from './expand.svg'
 import {ReactComponent as SearchSVG} from "../assets/search.svg"
 import {ReactComponent as ListSVG} from "./list.svg"
+import {ReactComponent as CloseSVG} from "./close.svg"
 
-
+const userName = 'Sofia'
 const itemsList = [
     { 
         title: 'Tus me gusta',
@@ -63,7 +64,9 @@ function Library(){
         subtitle: '',
         img: '',
     })
-    const [error, setError] = React.useState(false)
+    const [typeError, setTypeError] = React.useState('') // Estado para saber si se intento añadir un elemento con un titulo en uso
+    const [showPlaylist, setShowPlaylist] = React.useState(false)
+    const [showArtist, setShowArtist] = React.useState(false)
 
     // const [items, setItems] = React.useState([{ 
     //     title: 'Tus me gusta',
@@ -124,7 +127,7 @@ function Library(){
                 if(libraryModalRef.current && !libraryModalRef.current.contains(e.target)){
                     setLibraryModal(false)
                     setFormData({title: '', subtitle: '', img: ''})
-                    setError(false)
+                    setTypeError('')
                 }
             }
 
@@ -141,8 +144,17 @@ function Library(){
         return 0;
     }   )
 
-    const filteredSongsLibrary = sortedItems.filter(item =>
-        item.title.toLowerCase().includes(lookingLibrary.toLowerCase())
+    const filteredSongsLibrary = sortedItems.filter(item =>{
+        if(showPlaylist){
+            return item.type === 'playlist' && item.title.toLowerCase().includes(lookingLibrary.toLowerCase())
+        }
+        else if(showArtist){
+            return item.type === 'artista' && item.title.toLowerCase().includes(lookingLibrary.toLowerCase())
+        }
+        
+        return item.title.toLowerCase().includes(lookingLibrary.toLowerCase())
+
+    }
     )
 
     const onSearch = () => {
@@ -158,9 +170,13 @@ function Library(){
     }
 
     const addItemToLibrary = (newItem)=>{
-        if(items.some(item => item.title.toLowerCase() === formData.title.toLowerCase())){
-            setError(true)
-        }else{
+        if(newItem.title.trim() === ''){
+            setTypeError('Titulo no puede estar vacio')
+        }
+        else if(items.some(item => item.title.toLowerCase() === formData.title.toLowerCase())){
+            setTypeError('Ya existe un playlist con ese nombre')
+        }
+        else{
             saveItems([...items, {...newItem, type: libraryModalType}])
             setLibraryModal(false)
             setFormData({title: '', subtitle: '', img: ''})
@@ -206,8 +222,8 @@ function Library(){
                                     className='d-flex flex-column'>
 
                                         <div className='libraryModal__element'>
-                                            {error && (
-                                                <p className='text-danger'>Ya existe un {libraryModalType} con ese nombre</p>
+                                            {typeError && (
+                                                <p className='text-danger'>{typeError}</p>
                                             )}
                                             <label>Titulo:</label>
                                             <input
@@ -215,7 +231,7 @@ function Library(){
                                             // onSubmit={}
                                             onChange={(e) => {
                                                 setFormData({...formData, title: e.target.value})
-                                                setError(false)
+                                                setTypeError('')
                                             }
                                                 
                                             } 
@@ -300,9 +316,33 @@ function Library(){
                     </div>
                 </header>
 
-                <div className='pills__container p-2 '>
-                    <button className='pills__button rounded-pill m-1 '>Playlists</button>
-                    <button className='pills__button rounded-pill m-1 '>Artistas</button>
+
+                <div className='pills__container p-2 d-flex'>
+                    {(showPlaylist || showArtist) && (
+                    <button 
+                    onClick={()=>{
+                        setShowArtist(false)
+                        setShowPlaylist(false)
+                    }}
+                    className='pills__button rounded-circle d-flex align-items-center'
+                    >
+                        <CloseSVG 
+                        className='m-0 p-0'
+                        />
+                    </button>
+                )}
+                    <button 
+                    onClick={()=> {
+                        setShowPlaylist(true)
+                        setShowArtist(false)
+                    }}
+                    className='pills__button rounded-pill m-1 '>Playlists</button>
+                    <button 
+                    onClick={()=> {
+                        setShowPlaylist(false)
+                        setShowArtist(true)
+                    }}
+                    className='pills__button rounded-pill m-1 '>Artistas</button>
                 </div>
 
                 <div className='library__list  px-1 overflow-auto flex-grow-1'>
@@ -344,8 +384,8 @@ function Library(){
                         
 
                     </div>
-
                     {filteredSongsLibrary.map(item => (
+
                         
                         <div
                         key={item.title}
@@ -360,7 +400,7 @@ function Library(){
 
                             <div className=''>
                                 <h3 className='list__item--title m-0 mb-1'> {capitalize(item.title)} </h3>
-                                <p className='list__item--subtitle m-0'> {capitalize(item.type) + ' • ' + item.subtitle} </p>
+                                <p className='list__item--subtitle m-0'> {capitalize(item.type) + ' • ' + (item.subtitle ? item.subtitle: userName)} </p>
                             </div>
 
                         </div>
