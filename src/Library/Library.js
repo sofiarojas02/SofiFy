@@ -11,23 +11,27 @@ import { LibrarySearch} from './LibraryComponents/LibrarySearch';
 import { LibraryItem} from './LibraryComponents/LibraryItem';
 import { LibraryList} from './LibraryComponents/LibraryList';
 
+import{LoadingLibrary} from './LibraryComponents/LoadingLibrary'
+import{ErrorLibrary} from './LibraryComponents/ErrorLibrary'
+import{EmptyLibrary} from './LibraryComponents/EmptyLibrary'
+
 import {useLocalStorage} from '../App/useLocalStorage'
 const userName = 'Sofia'
-// const itemsList = [
-//     { 
-//         title: 'Tus me gusta',
-//         subtitle: 'Playlist • 2 canciones',
-//         img: 'https://www.oldskull.net/wp-content/uploads/2015/01/Rock_Covers-ilustracion-oldskull-15.jpg',
-//         type: 'playlist'
-//     },
-//     { 
-//         id: 2,
-//         title: 'Daily Mix 1',
-//         subtitle: 'Hecho para Sofía',
-//         img: 'https://www.oldskull.net/wp-content/uploads/2015/01/Rock_Covers-ilustracion-oldskull-15.jpg',
-//         type: 'playlist',
-//     },
-// ];
+const itemsList = [
+    { 
+        title: 'Tus me gusta',
+        subtitle: 'Playlist • 2 canciones',
+        img: 'https://www.oldskull.net/wp-content/uploads/2015/01/Rock_Covers-ilustracion-oldskull-15.jpg',
+        type: 'playlist'
+    },
+    { 
+        id: 2,
+        title: 'Daily Mix 1',
+        subtitle: 'Hecho para Sofía',
+        img: 'https://www.oldskull.net/wp-content/uploads/2015/01/Rock_Covers-ilustracion-oldskull-15.jpg',
+        type: 'playlist',
+    },
+];
 
 
 function Library(){
@@ -205,9 +209,9 @@ function Library(){
 
                     <LibraryList>
 
-                        {(loading && !error) && <p>Cargando</p>}
-                        {(error && !loading) && <p>Error</p>}
-                        {(!loading && filteredSongsLibrary.length == 0) && <p>Añade tu primera playlist</p>}
+                        {(loading && !error) && <LoadingLibrary />}
+                        {(error && !loading) &&<ErrorLibrary />}
+                        {(!loading && !error && filteredSongsLibrary.length == 0) && <EmptyLibrary />}
 
                         {filteredSongsLibrary.map(item => (
 

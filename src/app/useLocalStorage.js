@@ -10,16 +10,20 @@ const useLocalStorage = (itemName, initialValue) => {
 
 
     React.useEffect(()=>{
-        setTimeout(()=>{
-            if(!localStorageItems){
-                localStorage.setItem(itemName, JSON.stringify(initialValue))
-                parsedItem = initialValue
-            }else {
-                parsedItem = JSON.parse(localStorageItems)
-                setLoading(false)
-                setItem(parsedItem)
-            }
-        },2000)
+        try{
+            setTimeout(()=>{
+                if(!localStorageItems){
+                    localStorage.setItem(itemName, initialValue)
+                    parsedItem = initialValue
+                }else {
+                    parsedItem = JSON.parse(localStorageItems)
+                    setLoading(false)
+                    setItem(parsedItem)
+                }
+            },2000)
+        }catch(e){
+            setError(true)
+        }
     },[])
     
     

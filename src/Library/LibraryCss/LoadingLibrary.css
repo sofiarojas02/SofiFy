@@ -1,0 +1,45 @@
+.loadingLibrary__item {
+    background: rgb(49, 70, 49);
+}
+
+.loadingLibrary__item {
+  width: 100%;
+  height: 48px; /* Ajusta según el alto de tus tareas */
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background-color: #1a1b1a; /* Un lila muy claro, acorde a tu UI */
+  animation: smoothPulse 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes smoothPulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.loadingLibrary__img{
+  background-color: #212221;
+  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+
+}
+
+.loadingLibrary__title{
+    background: #212221;
+    width: 80px;
+    height: 8px;
+    margin-bottom: 5px;
+}
+
+.loadingLibrary__subtitle{
+    background: #212221;
+    width: 50px;
+    height: 5px;
+}
