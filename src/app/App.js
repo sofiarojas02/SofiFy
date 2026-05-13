@@ -4,6 +4,7 @@ import { Library } from '../Library/Library';
 import { RightPanel } from '../RightPanel';
 import { Main } from '../Main';
 import { Reproductive } from '../Reproductive';
+import { LibraryProvider } from '../Library/LibraryContext/LibraryContext';
 
 
 function App() {
@@ -15,7 +16,9 @@ function App() {
 
         <div className='page__body d-flex  overflow-hidden flex-grow-1 gap-2 p-1'>
           
-          <Library />
+          <LibraryProvider>
+              <Library />
+          </LibraryProvider>
           <Main />
           <RightPanel />
         </div>

@@ -2,28 +2,44 @@ import React, { useEffect, useState } from 'react';
 import {ReactComponent as LibraryIcon} from '../library.svg'
 import {ReactComponent as PlusIcon} from '../plus.svg'
 import {ReactComponent as ExpandIcon} from '../expand.svg'
+import { useLibrary } from '../LibraryContext/LibraryContext'
 
 
+function LibraryHeader(){
 
+const {
+        libraryAdded,
+        setLibraryAdded,
+        libraryModal,
+        setLibraryModal,
+        formData,
+        setFormData,
+        libraryModalType,
+        typeError,
+        setTypeError,
+        openLibraryModal,
+        addItemToLibrary,
+} = useLibrary()
 
-function LibraryHeader({
-    libraryAdded,
-    setLibraryAdded,
-    libraryModal,
-    setLibraryModal,
-    formData,
-    setFormData,
-    libraryModalRef,
-    plusRef,
-    libraryModalType,
-    typeError,
-    setTypeError,
-    openLibraryModal,
-    addItemToLibrary,
+    const plusRef = React.useRef(null)
+    const libraryModalRef = React.useRef(null) //ref para el modal de añadir playlis o artist
+    
 
-})
+            //Abrir modal de libreria
+        useEffect(()=>{
+            const libraryModalOutside = (e) => {
+                if(libraryModalRef.current && !libraryModalRef.current.contains(e.target)){
+                    setLibraryModal(false)
+                    setFormData({title: '', subtitle: '', img: ''})
+                    setTypeError('')
+                }
+            }
 
-{
+            document.addEventListener('mousedown', libraryModalOutside);
+            return () => document.removeEventListener('mousedown', libraryModalOutside)
+
+        },[])
+
 
         useEffect(()=>{
             const plusRefClickOutside = (e) =>{

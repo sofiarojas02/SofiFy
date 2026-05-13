@@ -1,6 +1,6 @@
 import '../LibraryCss/LoadingLibrary.css'
 
-function LoadingLibrary({type}){
+function LoadingLibrary(){
     return(
         <>
         <li        

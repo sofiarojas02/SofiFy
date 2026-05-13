@@ -1,9 +1,10 @@
+import { useLibrary } from '../LibraryContext/LibraryContext'
 import '../LibraryCss/LibraryItem.css'
 import React, { useEffect } from 'react'
 
+
 function LibraryItem({
     item,
-    capitalize,
     userName,
     selectItem,
     setSelectItem,
@@ -11,6 +12,11 @@ function LibraryItem({
     setMenuPosition,
     onDelete,
 }){
+    
+    const {
+        capitalize,
+
+    } = useLibrary()
 
     const deleteOptionRef = React.useRef()
 

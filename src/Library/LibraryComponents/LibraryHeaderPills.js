@@ -1,10 +1,16 @@
-function LibraryHeaderPills({
-    showPlaylist,
-    setShowPlaylist,
-    showArtist,
-    setShowArtist,
-    CloseSVG,
-}){
+import React from "react"
+import { useLibrary } from "../LibraryContext/LibraryContext"
+import {ReactComponent as CloseSVG} from "../close.svg"
+
+function LibraryHeaderPills(){
+
+    const {
+        showPlaylist,
+        setShowPlaylist,
+        showArtist,
+        setShowArtist,
+    } = useLibrary()
+    
     return(
         <div className='pills__container p-2 d-flex'>
                     {(showPlaylist || showArtist) && (
