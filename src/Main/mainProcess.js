@@ -28,6 +28,7 @@ const recentData = [
         const {
             item: recentCard,
             saveItem: saveRecentCard,
+            loading,
         } = useLocalStorage('Recent_List',recentData)
     
         const addRecent = () =>{
@@ -64,7 +65,7 @@ const recentData = [
         }
 
 
-        return{recentCard, addRecent, deleteRecent, editRecent}
+        return{recentCard, addRecent, deleteRecent, editRecent, loading}
     }
 
     export {useRecentCards}

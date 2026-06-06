@@ -45,8 +45,10 @@ function RecentCard(props){
     }
     
     const changeCardInfo = (e) => {
-        setCardMenuPosition({x: e.clientX, y: e.clientY})
-        setCardMenu(true)
+        if(!cardMenu){
+            setCardMenuPosition({x: e.clientX, y: e.clientY})
+            setCardMenu(true)
+        }
     }
 
 

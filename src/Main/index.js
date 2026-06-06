@@ -5,9 +5,10 @@ import { MainRecent } from './Componentes/MainRecent'
 import { RecentCard } from './Componentes/RecentCard'
 import './main.css'
 import { useRecentCards } from './mainProcess'
+import { useLocalStorage } from '../App/useLocalStorage'
 
 function Main(){
-    const {recentCard, addRecent, deleteRecent, editRecent} = useRecentCards()
+    const {recentCard, addRecent, deleteRecent, editRecent, loading} = useRecentCards()
     
     return(
         <section className="main__container  overflow-auto rounded-3 bg-#121212 flex-grow-1">
@@ -18,7 +19,7 @@ function Main(){
             </MainPillsContainer>
 
             <MainRecent>
-                {recentCard.map((card) => (
+                {!loading && recentCard.map((card) => (
                     <RecentCard
                     key={card.id}
                     img={card.img}
