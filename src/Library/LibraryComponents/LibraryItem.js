@@ -43,7 +43,8 @@ function LibraryItem({
         }}
         className='list__item  d-flex p-2 pt-2 pb-2 align-items-center gap-2 rounded-3  bg-transparent text-white'
         >
-                {selectItem === item.title && <button className="delete__option"
+                {selectItem === item.title && 
+                <button className="delete__option"
                 style={{
                     left :menuPosition.x,
                     top: menuPosition.y,

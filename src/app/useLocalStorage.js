@@ -13,8 +13,9 @@ const useLocalStorage = (itemName, initialValue) => {
         try{
             setTimeout(()=>{
                 if(!localStorageItems){
-                    localStorage.setItem(itemName, initialValue)
+                    localStorage.setItem(itemName, JSON.stringify(initialValue))
                     parsedItem = initialValue
+                    setLoading(false)
                 }else {
                     parsedItem = JSON.parse(localStorageItems)
                     setLoading(false)
@@ -31,9 +32,9 @@ const useLocalStorage = (itemName, initialValue) => {
 
 
     const saveItem = (newItem) => {
-    localStorage.setItem(itemName, JSON.stringify(newItem))
+        localStorage.setItem(itemName, JSON.stringify(newItem))
 
-    setItem(newItem)
+        setItem(newItem)
     }
 
 
