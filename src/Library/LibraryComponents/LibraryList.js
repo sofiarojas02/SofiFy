@@ -1,6 +1,8 @@
+import '../LibraryCss/LibraryList.css'
+
 function LibraryList(props){
-    return (
-        <ul className="library-list">
+    return(
+        <ul className="LibraryList__container">
             {props.children}
         </ul>
     )

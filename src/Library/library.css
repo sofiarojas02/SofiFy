@@ -17,7 +17,7 @@
 /* Header de biblioteca */
 .library__container{
     background: #121212;
-    width: 255px;
+    width: 300px;
 }
 
 .library__header{
@@ -171,9 +171,6 @@
 }
 
 
-.list__item{
-    position: relative;
-}
 
 .list__item--title{
     font-size: var(--small);
@@ -238,7 +235,7 @@
 
 
 .librarySearch__input--open{
-    width: 170px;
+    width: 230px;
     opacity: 1;
     pointer-events: auto; 
 }
@@ -262,32 +259,4 @@
 
 .libraryModal__form{
     width: 300px;
-}
-
-.deleteItem__option {
-    cursor: pointer;
-    width: 180px;
-    background-color: #282828;
-    border-radius: 6px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-    padding: 4px;
-    z-index: 100;
-}
-
-.deleteItem__option p {
-    padding: 8px 12px;
-    margin: 0;
-    border-radius: 4px;
-    font-size: 14px;
-    color: #ff4444;
-}
-
-.deleteItem__option:hover p {
-    background-color: #333;
-}
-
-ul{
-    text-decoration: none;
-    list-style: none;
-    padding: 0;
 }

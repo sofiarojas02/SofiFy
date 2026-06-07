@@ -1,0 +1,18 @@
+.delete__option{
+    position: fixed;
+
+    background-color: #282828;
+    color: white;
+    padding: 12px 60px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    margin: 0;
+    border: none;
+
+}
+
+.delete__option:hover {
+    background-color: #3e3e3e;
+}
