@@ -5,9 +5,14 @@ import { RightPanel } from '../RightPanel';
 import { Main } from '../Main';
 import { Reproductive } from '../Reproductive';
 import { LibraryProvider } from '../Library/LibraryContext/LibraryContext';
+import React from 'react';
 
 
 function App() {
+
+  const [activeTrack, setActiveTrack] = React.useState(null);
+
+
   return (
     <>
 
@@ -19,8 +24,24 @@ function App() {
           <LibraryProvider>
               <Library />
           </LibraryProvider>
-          <Main />
-          <RightPanel />
+          <Main 
+          onSelectTrack={setActiveTrack}
+          />
+
+          {activeTrack && 
+            <RightPanel 
+              title = {activeTrack.name}
+              type = {activeTrack.type}
+              subtittle = {activeTrack.author}
+              author = {activeTrack.author}
+              description = {activeTrack.description}
+              coverImage = {activeTrack.image}
+              authorImage= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyiqeyfo4W94byruTLSCU8maw187wOqtgPPU-uMu0hN26GVtwbBkuoIXfH&s=10'
+              onClose = {() => setActiveTrack(null)}
+            />
+          }
+          
+          
         </div>
 
         <Reproductive />

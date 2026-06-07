@@ -1,6 +1,8 @@
 function MusicCard(props){
     return(
-        <div className="music__card">
+        <div className="music__card"
+        onClick={props.onSelectTrack}
+        >
             <div className="image__container">
                 <img src={props.cardImage}/>
             </div>
