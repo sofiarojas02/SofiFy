@@ -56,12 +56,12 @@ function RecentCard(props){
         <div 
         className="recent__card d-flex align-items-center text-center rounded-2 w-100 overflow-hidden"
         onContextMenu={cardContextMenu}
-        onDoubleClick={changeCardInfo}
+        onClick={changeCardInfo}
         >
 
             {cardMenu && 
                 <CardForm
-                ref={recentFormRef}
+                recentFormRef={recentFormRef}
                 left={cardMenuPosition.x}
                 top={cardMenuPosition.y}
                 setCardMenu={setCardMenu}

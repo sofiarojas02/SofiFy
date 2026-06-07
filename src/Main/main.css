@@ -6,8 +6,6 @@
 
 .main__container{
     background: #121212;
-    padding: 20px 40px;
-    
 }
 
 /* pills */
@@ -31,10 +29,14 @@
 /* Contenedor de recientes */
 
 .mainRecentGrid__container{
-    grid-template-columns: repeat(auto-fill,minmax(290px, 1fr));
+    grid-template-columns: repeat(auto-fill,minmax(260px, 1fr));
 }
 
 /* RecentCard */
+
+.recent__pills{
+    padding: 10px 30px;
+}
 
 .recent__card{
     background: #2a2a2a;
@@ -153,4 +155,89 @@
 background-color: #474747;
     border-color: #535353;
     outline: none;
+}
+
+
+/* Main music */
+
+.music__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+    padding: 16px;
+}
+
+.music__card {
+    /* background-color: #181818; */
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    /* Evita que el contenido interior desborde el ancho de la tarjeta */
+    min-width: 0; 
+}
+
+.music__card:hover {
+    background-color: #282828;
+}
+
+/* Contenedor de la imagen */
+.music__card div:first-of-type {
+    width: 100%;
+    margin-bottom: 14px;
+}
+
+/* Imagen totalmente responsiva */
+.music__card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+/* Textos controlados */
+.music__card h6 {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.music__card p {
+    color: #b3b3b3;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* barra de scroll vertical  */
+
+/* 1. Define el ancho total de la barra de scroll vertical */
+::-webkit-scrollbar {
+    width: 8px; /* Un tamaño delgado y discreto */
+}
+
+/* 2. El fondo de la barra (el carril por donde se mueve) */
+::-webkit-scrollbar-track {
+    background: #121212; /* Gris casi negro, igual al fondo de tu contenedor */
+}
+
+/* 3. La barra arrastrable (el indicador de posición) */
+::-webkit-scrollbar-thumb {
+    background: #5a5a5a; /* Gris medio para que resalte sutilmente */
+    border-radius: 4px;   /* Bordes redondeados */
+}
+
+/* 4. Efecto cuando pasas el mouse por encima de la barra */
+::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3; /* Se aclara un poco al pasar el cursor, estilo Spotify */
 }

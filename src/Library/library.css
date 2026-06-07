@@ -17,7 +17,7 @@
 /* Header de biblioteca */
 .library__container{
     background: #121212;
-    width: 255px;
+    width: 300px;
 }
 
 .library__header{
@@ -235,7 +235,7 @@
 
 
 .librarySearch__input--open{
-    width: 170px;
+    width: 230px;
     opacity: 1;
     pointer-events: auto; 
 }

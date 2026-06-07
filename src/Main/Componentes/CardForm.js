@@ -25,7 +25,7 @@ function CardForm(props){
             left:props.left,
             top:props.top,
         }}
-        ref={props.ref}
+        ref={props.recentFormRef}
         >
             <h4>Change Info</h4>
             <label>Text</label>
