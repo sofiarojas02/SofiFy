@@ -11,13 +11,21 @@ import React from 'react';
 function App() {
 
   const [activeTrack, setActiveTrack] = React.useState(null);
+  const [navSearch, setNavSearch] = React.useState('');
+    const [mainFilter, setMainFilter] = React.useState('todo')
+
+
 
 
   return (
     <>
 
       <div className='page__container vh-100  d-flex flex-column bg-black text-white'>
-        <NavBar />
+        <NavBar 
+        searcher = {setNavSearch}
+        searchValue = {navSearch}
+        setMainFilter={setMainFilter}
+        />
 
         <div className='page__body d-flex  overflow-hidden flex-grow-1 gap-2 p-1'>
           
@@ -26,6 +34,9 @@ function App() {
           </LibraryProvider>
           <Main 
           onSelectTrack={setActiveTrack}
+          searchedMusic = {navSearch}
+          mainFilter={mainFilter}
+          setMainFilter={setMainFilter}
           />
 
           {activeTrack && 

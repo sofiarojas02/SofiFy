@@ -3,7 +3,7 @@ const playlistData = [
         name: "Timbaland Mix",
         image: "https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/artistmix/5Y5TRrQiqgUO4S36tzjIRZ/en",
         members: ["Nelly Furtado", "Lady Gaga", "Gwen Stefani"],
-        author: "Spotify",
+        author: "Zara",
         description: "Mezcla de éxitos producidos por Timbaland junto a grandes íconos del pop.",
         authorImage: "https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/artistmix/5Y5TRrQiqgUO4S36tzjIRZ/en",
         type: "Playlist"
@@ -30,7 +30,7 @@ const playlistData = [
         name: "Radio de Bad Bunny",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBtbJLAKENI7JQ0zze_IvVF1mOkx9oN-6fZUTrQFBzmQ&s",
         members: ["Arcángel", "KAROL G", "Feid"],
-        author: "Spotify",
+        author: "James",
         description: "Los mayores éxitos del género urbano y tus canciones favoritas del Conejo Malo.",
         authorImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBtbJLAKENI7JQ0zze_IvVF1mOkx9oN-6fZUTrQFBzmQ&s",
         type: "Radio"
@@ -39,7 +39,7 @@ const playlistData = [
         name: "Mix house",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMU18RNFSwZfY3kRQ4GCxcwKkJUyNubqzrmizKHhc1ZA&s=10",
         members: ["Bakermat", "MISERO", "bbno$"],
-        author: "Sofify",
+        author: "Sofia",
         description: "Ritmos electrónicos envolventes y deep house perfectos para mantener la energía arriba.",
         authorImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMU18RNFSwZfY3kRQ4GCxcwKkJUyNubqzrmizKHhc1ZA&s=10",
         type: "Playlist"
@@ -48,7 +48,7 @@ const playlistData = [
         name: "Mix de los 2000",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqD_-Jwexnn_nZU0MRLQlo5sd6wPt1qLBCswZV594kjg&s=10",
         members: ["Justin Timberlake", "Black Eyed Peas", "Gwen Stefani"],
-        author: "Spotify",
+        author: "Sofify",
         description: "Un viaje de nostalgia con los himnos del pop y hip-hop que marcaron el inicio del milenio.",
         authorImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqD_-Jwexnn_nZU0MRLQlo5sd6wPt1qLBCswZV594kjg&s=10",
         type: "Playlist"
@@ -66,7 +66,7 @@ const playlistData = [
         name: "Latin Pop Today",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStjSyAxLG756SdexDccfpxI3fBW2BHj-oGrzn8ZS1qUQ&s",
         members: ["Shakira", "Camilo", "Rauw Alejandro"],
-        author: "Spotify",
+        author: "Sofify",
         description: "Los éxitos más importantes del pop latino sonando en este preciso momento.",
         authorImage: "https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/playlist/latinpop/en",
         type: "Playlist"
@@ -75,7 +75,7 @@ const playlistData = [
         name: "Hard Rock Classic",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRijmOd9uoCcug9bhggx-rrNNBXMzoOIYT5hfgsaN5C_w&s",
         members: ["AC/DC", "Guns N' Roses", "Led Zeppelin"],
-        author: "Sofify",
+        author: "Rocky",
         description: "Riffs legendarios y la energía pura del rock que definió a toda una generación.",
         authorImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_hard_rock_classic_example",
         type: "Playlist"
@@ -102,7 +102,7 @@ const playlistData = [
         name: "Radio de Dua Lipa",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBN1UP-unWVC0klPDEr7egOs4xXN9P_kzNjMRv8l25SQ&s=10",
         members: ["The Weeknd", "Ava Max", "Miley Cyrus"],
-        author: "Spotify",
+        author: "Sofify",
         description: "Una estación diseñada con el mejor dance-pop, nu-disco y ritmos modernos del momento.",
         authorImage: "https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/dualipa/en",
         type: "Radio"

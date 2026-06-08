@@ -6,7 +6,7 @@ import {ReactComponent as BellSVG} from "./bell.svg"
 import {ReactComponent as HomeSVG} from "./home.svg"
 
 
-function NavBar(){
+function NavBar({searcher, searchValue, setMainFilter}){
     return(
         // nav left 
         <nav className=' bg-black d-flex align-items-center justify-content-between px-3 p-1'>
@@ -32,7 +32,11 @@ function NavBar(){
                         </span>
                         <input 
                         className='navBar-search form-control bg-transparent border-0 text-white shadow-none'
-                        placeholder='¿Que quieres reproducir?'></input>
+                        placeholder='¿Que quieres reproducir?'
+                        onChange={(e) => searcher(e.target.value)}
+                        value={searchValue}
+                        onClick={()=> setMainFilter('todo')}
+                        ></input>
                     </div>
 
                 </div>

@@ -1,7 +1,10 @@
 
-function MainPill({pillName}){
+function MainPill({pillName, value, onSelect, mainFilter}){
     return(
-        <div className="badge rounded-pill bg-transparent text-white px-3 py-2 fw-semibold m-1 border border-white">
+        <div 
+        className={`${mainFilter === value ? "pillActive": ""} main__pill badge rounded-pill fw-semibold m-1 `}
+        onClick={() => onSelect(value)}
+        >
             {pillName}
         </div>
     )

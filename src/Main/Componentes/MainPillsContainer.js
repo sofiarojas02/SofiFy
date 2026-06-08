@@ -2,7 +2,9 @@ function MainPillsContainer(props){
 
     return(
         <div className="recent__pills d-flex justify-content-between ">
-            <div className="d-flex">
+            <div 
+            className="d-flex"
+            >
                 {props.children}
             </div>
 

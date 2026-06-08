@@ -10,6 +10,22 @@
 
 /* pills */
 
+.main__pill{
+    background-color: rgba(255, 255, 255, 0.1); 
+    color: #ffffff;
+    padding: 8px 16px;
+    font-size: 0.875rem; 
+    font-weight: 600;
+    border: none; 
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.main__pill:hover:not(.pillActive){
+    background-color: rgba(255, 255, 255, 0.2);
+
+}
+
 .pill-add {
     background-color: #ffffff;
     color: #000000;
@@ -30,6 +46,11 @@
 
 .mainRecentGrid__container{
     grid-template-columns: repeat(auto-fill,minmax(260px, 1fr));
+}
+
+.pillActive{
+    background-color: white !important;
+    color: #000000 !important;
 }
 
 /* RecentCard */
@@ -164,6 +185,7 @@ background-color: #474747;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
     padding: 16px;
+    width: 100%;
 }
 
 .music__card {
@@ -240,4 +262,71 @@ background-color: #474747;
 /* 4. Efecto cuando pasas el mouse por encima de la barra */
 ::-webkit-scrollbar-thumb:hover {
     background: #b3b3b3; /* Se aclara un poco al pasar el cursor, estilo Spotify */
+}
+
+
+/* buscador / valor no encontrado */
+
+.value-not-found__container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Main esqueleto  */
+
+.main-esqueleto {
+  background-color: #121212;
+  border-radius: 8px;
+  padding: 16px;
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Grilla de tarjetas recientes (Horizontales) */
+.recent-skeleton__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.recent-skeleton__card {
+  background-color: #232323;
+  border-radius: 4px;
+  height: 48px;
+  width: 100%;
+  animation: pulse-skeleton 1.5s infinite ease-in-out;
+}
+
+/* Grilla de álbumes (Verticales) */
+.main-esqueleto > section:last-of-type {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.album-card-skeleton {
+  background-color: #181818;
+  border-radius: 6px;
+  padding: 16px;
+  aspect-ratio: 1 / 1.35;
+  width: 100%;
+  animation: pulse-skeleton 1.5s infinite ease-in-out;
+}
+
+/* Animación de parpadeo */
+@keyframes pulse-skeleton {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
 }
