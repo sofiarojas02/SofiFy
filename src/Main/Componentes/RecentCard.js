@@ -83,6 +83,13 @@ function RecentCard(props){
             >
                 Eliminar <span> <TrashIcon className="TrashIcon"/> </span>
                 </button>}
+
+            <div className="card-mesagge__container position-absolute bg-black">
+                <p className="m-0 text-secondary fw-semibold">{/* m-0 quita márgenes extras de Bootstrap */}</p>
+                <p className="m-0 text-white-50">Click derecho para eliminar</p>
+        </div>
+
+
             <figure className="recent__imageContainer">
                 <img src={props.img}/>
             </figure>
