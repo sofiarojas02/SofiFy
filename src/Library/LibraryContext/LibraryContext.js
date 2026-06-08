@@ -3,9 +3,34 @@ import { useLocalStorage } from "../../App/useLocalStorage"
 
 const LibraryContext = React.createContext()
 
+const itemsList = [
+    { 
+        title: 'Tus me gusta',
+        subtitle: 'Playlist • 2 canciones',
+        img: 'https://external-preview.redd.it/summer-vibes-aesthetic-playlist-v0-WA21shpxFd4_AUCPaXNISh-AbLjSUZ-b6G7GWt1dt90.jpg?auto=webp&s=cdf09a04019426fe4657fb7b5ef7870b6dfa74b6',
+        type: 'playlist'
+    },
+    { 
+        id: 2,
+        title: 'Daily Mix 1',
+        subtitle: 'Hecho para Sofía',
+        img: 'https://images.pexels.com/photos/3721380/pexels-photo-3721380.jpeg',
+        type: 'playlist',
+    },
+        { 
+        id: 3,
+        title: 'Elton Jhon',
+        subtitle: 'Pop / Rock',
+        img: 'https://i.pinimg.com/736x/d2/26/86/d22686037c83529a86f1e857af4df096.jpg',
+        type: 'artista',
+    },
+];
+
+
 function useLibrary(){
     return useContext(LibraryContext)
 }
+
 
 
 function LibraryProvider({children}){
@@ -14,7 +39,7 @@ function LibraryProvider({children}){
             saveItem: saveItems,
             loading,
             error,
-        } = useLocalStorage('Items', [])
+        } = useLocalStorage('Items', itemsList)
 
     const [libraryAdded, setLibraryAdded] = React.useState(false); // estado para controlar si se ha agregado una nueva canción o artista a la biblioteca (simulada)
     const [libraryModal, setLibraryModal] = React.useState(false) //Saber si el modal para añadir esta abierto o cerrado

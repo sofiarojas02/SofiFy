@@ -67,8 +67,8 @@ function Reproductive(){
                         onClick={onPlay}
                         >
                             {isPlaying ? 
-                            <PlaySVG className='box__button--svg isPlaying'/> : 
-                            <PauseSVG className='box__button--svg isPlaying'/>}
+                            <PauseSVG className='box__button--svg isPlaying'/> :
+                            <PlaySVG className='box__button--svg isPlaying'/> }
                         </button>
                         <button className='box__button'>
                             <NextSVG className='box__button--svg'/>

@@ -20,21 +20,6 @@ import {LibraryProvider, useLibrary} from './LibraryContext/LibraryContext'
 
 
 const userName = 'Sofia'
-const itemsList = [
-    { 
-        title: 'Tus me gusta',
-        subtitle: 'Playlist • 2 canciones',
-        img: 'https://www.oldskull.net/wp-content/uploads/2015/01/Rock_Covers-ilustracion-oldskull-15.jpg',
-        type: 'playlist'
-    },
-    { 
-        id: 2,
-        title: 'Daily Mix 1',
-        subtitle: 'Hecho para Sofía',
-        img: 'https://www.oldskull.net/wp-content/uploads/2015/01/Rock_Covers-ilustracion-oldskull-15.jpg',
-        type: 'playlist',
-    },
-];
 
 
 function Library(){
