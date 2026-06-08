@@ -57,7 +57,13 @@ function LibraryItem({
                 <div className='d-flex align-items-center'>
                     <img 
                     className={`list__item--img ${item.type === 'artista' ? 'rounded-circle' : 'rounded-3'}`}
-                    src={item.img ? item.img: 'https://www.oldskull.net/wp-content/uploads/2015/01/Rock_Covers-ilustracion-oldskull-15.jpg'} 
+                    src={item.img 
+                        ? item.img 
+                        : item.type === 'artista'
+                            ? "https://pbs.twimg.com/profile_images/1328597526539341830/tnMqYPBh_400x400.jpg" 
+                            : "https://images.icon-icons.com/1674/PNG/512/list_111134.png"
+                    } 
+                    alt={item.title}
                     alt={item.title} />
                 </div>
 
