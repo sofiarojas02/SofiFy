@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 const singleTrack = {
   id: 1,
   name: "SoundHelix Song 1",
@@ -6,7 +8,9 @@ const singleTrack = {
   audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" // Audio real libre de derechos
 };
 
-const song = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'
+// const song = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3')
+// const songRef = useRef(song)
 
 
-export {singleTrack, song}
+
+export {singleTrack}
