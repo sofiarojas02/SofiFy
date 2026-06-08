@@ -22,6 +22,16 @@ const recentData = [
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzARMNQ8onFTjjtCYxQAoNmNUyr9UG15afS5-PBl4rEQ&s=10",
         title: 'Hard Rock'
     },
+        {
+        id: 5,
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU6jBFkKj_yXKgeKGFSosvCbfCL0nQiNWBpimrqq7SuQ&s=10",
+        title: 'New card'
+    },
+        {
+        id: 6,
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU6jBFkKj_yXKgeKGFSosvCbfCL0nQiNWBpimrqq7SuQ&s=10",
+        title: 'New card'
+    },
     ]
 
     function useRecentCards(){
