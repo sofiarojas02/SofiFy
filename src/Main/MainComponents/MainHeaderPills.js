@@ -1,6 +1,6 @@
 function MainHeaderPills(){
     return(
-        <ul className="d-flex gap-2 list-unstyled">
+        <ul className="mainPills d-flex gap-2 list-unstyled">
             <li className="">
                 <button className="pills__button rounded-pill">Todo</button>
             </li>

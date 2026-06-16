@@ -364,6 +364,12 @@ background-color: #474747;
     width: 100%;
   }
 
+  .recent__pills{
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+
 }
 
 @media (max-width: 580px) {
@@ -374,5 +380,12 @@ background-color: #474747;
     .pillActive{
         background-color: var(--primary-green) !important;
     }
+
+    .recent__pills{
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+
     
 }
