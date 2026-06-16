@@ -5,7 +5,6 @@
 }
 
 .reproductive__container{
-    background: #000000;
     grid-template-columns: 310px 2fr 300px;
     min-height: 70px;
     align-items: center;
@@ -192,3 +191,87 @@
 .progress-volumen:hover::-webkit-slider-thumb{
   opacity: 1;
 }
+
+/* responsive */
+
+@media screen and (max-width: 768px) and (min-width: 451px) {
+  .reproductive__container {
+    /* Mantenemos las 3 columnas pero reducimos los espacios */
+    grid-template-columns: 1.5fr 2fr 1.2fr; 
+    padding: 10px 12px;
+  }
+
+  /* Hacemos la barra de volumen un poco más corta para que no empuje */
+  .progress-volumen {
+    width: 60px !important;
+  }
+
+  /* Escondemos un par de iconos innecesarios de las opciones para ganar espacio */
+  .options__buttons button:nth-child(1),
+  .options__buttons button:nth-child(3) {
+    display: none !important;
+  }
+}
+
+/* Telefonos    */
+@media screen and (max-width: 450px) {
+  .reproductive__container {
+    /* Cambiamos a Flexbox para alinear todo en una sola línea fluida */
+    display: flex !important; 
+    justify-content: space-between;
+    align-items: center;
+    height: 65px; 
+    padding: 8px 16px;
+    width: 100% !important;
+  }
+
+  /* Ocultamos volumen, opciones, barra de tiempo y botones "Anterior/Siguiente" */
+  .reproductive__options, 
+  .reproductive__box > div:last-child,   
+  .box__button:not(:nth-child(2)) {      
+    display: none !important;
+  }
+
+  /* La info del tema se estira sin desbordar */
+  .reproductive__info {
+    flex-grow: 1;
+    max-width: 75%;
+    gap: 8px !important;
+  }
+
+  .info__image-container img {
+    width: 42px; 
+    height: 42px;
+  }
+
+  /* El botón de Play/Pause se queda fijo a la derecha */
+  .reproductive__box {
+    flex-grow: 0;
+  }
+}
+
+/* @media (max-width: 450px) {
+    .reproductive__section{
+      width: 100%;
+      background-color: red !important;
+      
+    }
+    
+    .reproductive__container{
+      background-color: #1db954 !important;
+      display: flex !important;
+    }
+
+    .progress-slider{
+      display: none !important;
+    }
+
+    .reproductive__container{
+      width: 100%;
+    }
+
+    .reproductive--duration{
+      display: none;
+    }
+    
+} */

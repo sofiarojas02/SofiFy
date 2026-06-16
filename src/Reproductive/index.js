@@ -36,8 +36,8 @@ function Reproductive(){
 
 
     return(
-        <section className=" bg-black ">
-            <div className="reproductive__container d-grid">
+        <section className="reproductive__section  ">
+            <div className="reproductive__container d-grid bg-black">
 
                 <div className='reproductive reproductive__info'>
                     <figure className='info__image-container'>
@@ -90,7 +90,7 @@ function Reproductive(){
                             }}
                         />
 
-                        <span>{duration ? `${Math.floor(duration / 60)}:${"0" + Math.floor(duration % 60).toString().slice(-2)}` : "0:00"}</span>
+                        <span className='reproductive--duration'>{duration ? `${Math.floor(duration / 60)}:${"0" + Math.floor(duration % 60).toString().slice(-2)}` : "0:00"}</span>
                     </div>
                 </div>
 

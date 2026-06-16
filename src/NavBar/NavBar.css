@@ -90,3 +90,11 @@ nav{
     background-color: transparent;
     color: #ccc;
 }
+
+/* responsive */
+
+@media (max-width: 450px) {
+    .navBar{
+      display: none !important;
+    }
+}

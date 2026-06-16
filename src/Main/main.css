@@ -356,3 +356,23 @@ background-color: #474747;
     opacity: 0.6;
   }
 }
+
+/* responsive */
+
+@media screen and (max-width: 768px) and (min-width: 451px) {
+  .main__container {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 450px) {
+    .mainRecentGrid__container{
+        grid-template-columns: repeat(2,1fr);
+    }
+    
+    .pillActive{
+        background-color: var(--primary-green) !important;
+    }
+    
+}

@@ -36,6 +36,9 @@ function Library(){
     const [isSearchOpen, setIsSearchOpen] = React.useState(false); //estado para controlar si el input de busqueda en biblioteca esta abierto o cerrado
     const [selectItem, setSelectItem] = React.useState(null)
     const [menuPosition, setMenuPosition] = React.useState({x: 0, y:0})
+    const [expandLibrary, setExpandLibrary] = useState(false)
+    console.log(expandLibrary)
+
 
 
 
@@ -48,9 +51,12 @@ function Library(){
 
 
     return(
-            <aside className="library__container h-100 rounded-3 flex-column overflow-hidden d-flex bg-#121212">
+            <aside className={`library__container h-100 rounded-3 flex-column overflow-hidden d-flex bg-#121212 ${expandLibrary ? "library--expand" : ""}`}>
+                
 
-                <LibraryHeader />
+                <LibraryHeader 
+                setExpandLibrary={setExpandLibrary}
+                />
 
 
                 <LibraryHeaderPills />

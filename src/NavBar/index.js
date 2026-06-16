@@ -9,7 +9,7 @@ import {ReactComponent as HomeSVG} from "./home.svg"
 function NavBar({searcher, searchValue, setMainFilter}){
     return(
         // nav left 
-        <nav className=' bg-black d-flex align-items-center justify-content-between px-3 p-1'>
+        <nav className='navBar bg-black d-flex align-items-center justify-content-between px-3 p-1'>
 
 
             <div className='nav-left '>

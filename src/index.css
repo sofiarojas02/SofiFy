@@ -3,6 +3,8 @@
   --tiny: 9px;
   --medium: 16px;
   --big: 24px;
+  --primary-green: #1db954;
+  --green-hover: #1ed760;
 
 }
 
@@ -24,3 +26,4 @@ code {
   color: white !important;
   cursor: pointer;
 }
+

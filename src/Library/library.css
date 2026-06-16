@@ -260,3 +260,17 @@
 .libraryModal__form{
     width: 300px;
 }
+
+
+.library--expand{
+    width: 100%;
+}
+
+
+/* responsive */
+
+@media (max-width: 450px) {
+    .library__container{
+        display: none !important; 
+    }
+}

@@ -7,3 +7,12 @@ body{
   min-width: 100%;
   min-height: 100%;
 }
+
+/* responsive */
+
+@media (max-width: 450px) {
+    .page__container{
+      width: 100vw;
+      overflow: hidden;
+    }
+}

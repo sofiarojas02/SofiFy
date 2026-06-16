@@ -5,7 +5,7 @@ import {ReactComponent as ExpandIcon} from '../expand.svg'
 import { useLibrary } from '../LibraryContext/LibraryContext'
 
 
-function LibraryHeader(){
+function LibraryHeader({setExpandLibrary}){
 
 const {
         libraryAdded,
@@ -20,6 +20,8 @@ const {
         openLibraryModal,
         addItemToLibrary,
 } = useLibrary()
+
+    
 
     const plusRef = React.useRef(null)
     const libraryModalRef = React.useRef(null) //ref para el modal de añadir playlis o artist
@@ -54,7 +56,7 @@ const {
 
 
     return(
-        <header className='library__header d-flex p-1 align-items-center w-100'>
+        <header className='library__header d-flex p-1 align-items-center w-100'> 
                     <div className='library__trigger d-flex align-items-center'>
                         <button className=' library__button--toggle rounded-5 border-0 text-secondary d-flex align-items-center justify-content-center p-2'>
                             <LibraryIcon className='library-icon'/>
@@ -176,7 +178,10 @@ const {
                         )}
 
                         </div>
-                        <button className='header__button  bg-dark text-secondary rounded-5 '>
+                        <button 
+                        className={`header__button  bg-dark text-secondary rounded-5 `}
+                        onClick={() => setExpandLibrary(state => !state)}
+                        >
                             <ExpandIcon className='library__icon expand-icon'/>
                         </button>
                     </div>
