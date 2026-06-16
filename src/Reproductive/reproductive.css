@@ -4,10 +4,17 @@
     box-sizing: border-box;
 }
 
+.reproductive__section{
+  position: relative;
+}
+
 .reproductive__container{
     grid-template-columns: 310px 2fr 300px;
     min-height: 70px;
     align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .reproductive{
@@ -194,7 +201,7 @@
 
 /* responsive */
 
-@media screen and (max-width: 768px) and (min-width: 451px) {
+@media screen and (max-width: 768px) and (min-width: 581px) {
   .reproductive__container {
     /* Mantenemos las 3 columnas pero reducimos los espacios */
     grid-template-columns: 1.5fr 2fr 1.2fr; 
@@ -214,7 +221,7 @@
 }
 
 /* Telefonos    */
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 580px) {
   .reproductive__container {
     /* Cambiamos a Flexbox para alinear todo en una sola línea fluida */
     display: flex !important; 

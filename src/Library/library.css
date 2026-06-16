@@ -269,7 +269,7 @@
 
 /* responsive */
 
-@media (max-width: 450px) {
+@media (max-width: 580px) {
     .library__container{
         display: none !important; 
     }

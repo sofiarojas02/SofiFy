@@ -4,13 +4,13 @@ body{
 }
 
 .page__container{
-  min-width: 100%;
+  width: 100%;
   min-height: 100%;
 }
 
 /* responsive */
 
-@media (max-width: 450px) {
+@media (max-width: 580px) {
     .page__container{
       width: 100vw;
       overflow: hidden;

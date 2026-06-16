@@ -359,14 +359,14 @@ background-color: #474747;
 
 /* responsive */
 
-@media screen and (max-width: 768px) and (min-width: 451px) {
+@media screen and (max-width: 768px) and (min-width: 581px) {
   .main__container {
     width: 100%;
   }
 
 }
 
-@media (max-width: 450px) {
+@media (max-width: 580px) {
     .mainRecentGrid__container{
         grid-template-columns: repeat(2,1fr);
     }
