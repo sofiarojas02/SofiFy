@@ -16,7 +16,7 @@ function Main({onSelectTrack, searchedMusic, mainFilter, setMainFilter}){
     const {recentCard, addRecent, deleteRecent, editRecent, loading} = useRecentCards()
 
     const pillTypes = [
-        {name: 'Todo', value : 'todas'},
+        {name: 'Todas', value : 'todo'},
         {name: 'Playlist', value : 'playlist'},
         {name: 'Podcast', value : 'podcast'},
     ]
