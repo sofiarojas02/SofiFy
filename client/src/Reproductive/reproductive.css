@@ -1,0 +1,284 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.reproductive__section{
+  position: relative;
+}
+
+.reproductive__container{
+    grid-template-columns: 310px 2fr 300px;
+    min-height: 70px;
+    align-items: center;
+    position: static;
+    bottom: 0;
+    width: 100%;
+}
+
+.reproductive{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+
+/* left info */
+.reproductive__info{
+    /* background-color: #777; */
+    padding: 0 15px;
+    gap: 15px;
+}
+.info--tittle{
+    margin: 0;
+}
+
+.info--subtittle{
+    margin: 0;
+    font-size: .8rem;
+}
+
+.info__image-container{
+    margin: 0;
+    width: 60px;
+    height: 80%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.info__image-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.verify-svg{
+    fill: green;
+}
+
+
+/* Sección Central: Controles y Barra de reproducción */
+.reproductive__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Contenedor de botones (left, stop, right) */
+.reproductive__box > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.reproductive__box button {
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 3px;
+  transition: .2s;
+}
+
+.isPlaying{
+  color: #000000;
+}
+
+.reproductive__box button:hover {
+  transform: scale(1.05);
+}
+
+.pause-svg{
+    fill: #000000;
+}
+
+
+
+
+
+
+/* Sección Derecha: Opciones y Volumen */
+
+
+.reproductive__options {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 50px;
+}
+
+.reproductive__options > div {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.reproductive__options button {
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.reproductive__options button:hover {
+  color: #fff;
+}
+
+
+/* Barra de reproductor  */
+
+.progress-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: #4d4d4d;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.1s;
+
+    background: linear-gradient(to right, #ffffff var(--progressSong), #4d4d4d var(--progressSong));
+}
+
+.progress-slider:hover {
+    background: linear-gradient(to right, #1db954 var(--progressSong), #4d4d4d var(--progressSong));
+}
+
+.progress-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  opacity: 0; /* Oculta la bolita blanca por defecto */
+  transition: opacity 0.1s;
+}
+
+
+.progress-slider:hover::-webkit-slider-thumb {
+  opacity: 1; /* Aparece la bolita */
+}
+
+
+/* Barra de volumen  */
+
+.progress-volumen{
+  appearance: none;
+  height: 5px;
+  border-radius: 50px;
+  background-color: #4d4d4d;
+  cursor: pointer;
+
+  background: linear-gradient(to right, #ffffff var(--progressVolume), #4d4d4d var(--progressVolume));
+}
+
+.progress-volumen:hover{
+  background: linear-gradient(to right, #1db954 var(--progressVolume), #4d4d4d var(--progressVolume));
+}
+
+
+.progress-volumen::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  opacity: 0;
+  background-color: #ffffff;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  transition: opacity 0.1s;
+}
+
+.progress-volumen:hover::-webkit-slider-thumb{
+  opacity: 1;
+}
+
+/* responsive */
+
+@media screen and (max-width: 768px) and (min-width: 581px) {
+  .reproductive__container {
+    /* Mantenemos las 3 columnas pero reducimos los espacios */
+    grid-template-columns: 1.5fr 2fr 1.2fr; 
+    padding: 10px 12px;
+  }
+
+  /* Hacemos la barra de volumen un poco más corta para que no empuje */
+  .progress-volumen {
+    width: 60px !important;
+  }
+
+  /* Escondemos un par de iconos innecesarios de las opciones para ganar espacio */
+  .options__buttons button:nth-child(1),
+  .options__buttons button:nth-child(3) {
+    display: none !important;
+  }
+}
+
+/* Telefonos    */
+@media screen and (max-width: 580px) {
+  .reproductive__container {
+    /* Cambiamos a Flexbox para alinear todo en una sola línea fluida */
+    display: flex !important; 
+    justify-content: space-between;
+    align-items: center;
+    height: 65px; 
+    padding: 8px 16px;
+    width: 100% !important;
+  }
+
+  /* Ocultamos volumen, opciones, barra de tiempo y botones "Anterior/Siguiente" */
+  .reproductive__options, 
+  .reproductive__box > div:last-child,   
+  .box__button:not(:nth-child(2)) {      
+    display: none !important;
+  }
+
+  /* La info del tema se estira sin desbordar */
+  .reproductive__info {
+    flex-grow: 1;
+    max-width: 75%;
+    gap: 8px !important;
+  }
+
+  .info__image-container img {
+    width: 42px; 
+    height: 42px;
+  }
+
+  /* El botón de Play/Pause se queda fijo a la derecha */
+  .reproductive__box {
+    flex-grow: 0;
+  }
+}
+
+/* @media (max-width: 450px) {
+    .reproductive__section{
+      width: 100%;
+      background-color: red !important;
+      
+    }
+    
+    .reproductive__container{
+      background-color: #1db954 !important;
+      display: flex !important;
+    }
+
+    .progress-slider{
+      display: none !important;
+    }
+
+    .reproductive__container{
+      width: 100%;
+    }
+
+    .reproductive--duration{
+      display: none;
+    }
+    
+} */

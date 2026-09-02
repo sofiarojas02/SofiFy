@@ -1,0 +1,214 @@
+/* Contenedor Principal de la Derecha */
+.right-panel__container {
+    max-width: 350px;
+    height: 100%;
+    background-color: #121212;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Encabezado */
+.right-panel__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #121212;
+}
+
+.right-panel__header h5 {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.right-panel__close-btn {
+    background: none;
+    border: none;
+    color: #b3b3b3;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.right-panel__close-btn:hover {
+    color: #ffffff;
+}
+
+/* Área de contenido con Scroll interno */
+.right-panel__content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 16px 16px 16px;
+    display: flex;
+    flex-direction: column; /* Alinea los bloques uno debajo del otro */
+    gap: 16px; /* Da una separación uniforme entre la foto, el título y la descripción */
+}
+
+/* Personalización del scroll interno para el panel derecho */
+.right-panel__content::-webkit-scrollbar {
+    width: 8px;
+}
+.right-panel__content::-webkit-scrollbar-track {
+    background: #121212;
+}
+.right-panel__content::-webkit-scrollbar-thumb {
+    background: #5a5a5a;
+    border-radius: 4px;
+}
+.right-panel__content::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+}
+
+/* Contenedor de la Portada */
+.right-panel__cover-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    object-fit: cover;
+}
+
+.right-panel__cover {
+    width: 100%;
+    max-width: 100%;    /* Evita que se desborde del panel */
+    height: auto;
+    aspect-ratio: 1 / 1; /* Obliga a que sea un cuadrado perfecto como en Spotify */
+    border-radius: 8px;
+    object-fit: cover;   /* Si la imagen es rectangular, la recorta limpiamente al cuadrado */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* Información del Track */
+.right-panel__track-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.track-info__text h4 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+}
+
+.track-info__text p {
+    color: #b3b3b3;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.track-info__actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.track-info__actions button {
+    background: none;
+    border: none;
+    color: #b3b3b3;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0;
+}
+
+.track-info__actions button:hover {
+    color: #ffffff;
+}
+
+/* Tarjeta "Acerca del podcast" */
+.right-panel__about-card {
+    background-color: #181818;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.right-panel__about-card h6 {
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+}
+
+.about-card__description {
+    color: #b3b3b3;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+}
+
+/* Fila de información del creador */
+.about-card__author-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #242424;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.author-row__img {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.author-row__text {
+    flex: 1;
+    min-width: 0; /* Evita que rompa el layout si el texto es gigante */
+}
+
+.author-row__text h6 {
+    color: #ffffff;
+    font-size: 0.85rem;
+    margin: 0 0 2px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.author-row__text p {
+    color: #b3b3b3;
+    font-size: 0.75rem;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Botón Seguir */
+.btn-follow {
+    background-color: transparent;
+    border: 1px solid #727272;
+    color: #ffffff;
+    padding: 6px 16px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.1s ease, border-color 0.2s ease;
+}
+
+.btn-follow:hover {
+    border-color: #ffffff;
+    transform: scale(1.04);
+}
+
+
+@media (max-width: 450px) {
+    .right-panel__container{
+        display: none !important;
+    }
+
+}

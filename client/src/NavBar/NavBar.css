@@ -1,0 +1,100 @@
+.homeIcon, .searchIcon, .search_container{
+    transition: all 1.5s ease;
+    cursor: pointer;
+}
+
+.homeIcon:hover, .search_container:hover, .perfil:hover{
+    background-color:#313539 !important;
+    color: #fff;
+}
+
+.search_container:hover{
+    box-shadow: 0 0 3px .099px #888;
+}
+
+.search_container:hover .searchIcon{
+    color: #fff;
+}
+
+.options_button:hover{
+    color: #fff;
+}
+
+nav{
+    max-width: 100%;
+    font-size: 12px;
+}
+
+.nav-left{
+    width: 30%;
+}
+
+.navBar_logo{
+    display: flex;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    margin-left: 5px;
+}
+
+
+/* Buscador */
+
+
+.homeIcon{
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: grey;
+}
+
+.searchIcon{
+    padding: 0;
+    width: 30px;
+    color: grey;
+}
+
+
+.navBar-search{
+    min-width: 300px;
+    padding: 3px;
+    font-size: 12px;
+}
+
+.form-control::placeholder{
+    color: grey;
+    font-size: var(--small);
+}
+
+.search_container:focus-within {
+    border: 1.5px solid rgb(185, 185, 185) !important;
+}
+
+
+/* nav-right */
+
+.nav-right{
+    width: 30%;
+    justify-content: flex-end;
+}
+
+.navBar_options{
+    color: #fff;
+}
+
+.options_button{
+    border: none;
+    background-color: transparent;
+    color: #ccc;
+}
+
+/* responsive */
+
+@media (max-width: 450px) {
+    .navBar{
+      display: none !important;
+    }
+}

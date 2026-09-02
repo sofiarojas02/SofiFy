@@ -1,0 +1,276 @@
+/* .esconder{
+    display: none !important;
+} */
+
+.normal-state{
+    opacity: 1;
+    max-width: 200px;
+    transform: translateX(0)
+}
+
+.colapsed-state{
+    opacity: 0;
+    max-width: 0;
+    transform: translateX(20px)
+}
+
+/* Header de biblioteca */
+.library__container{
+    background: #121212;
+    width: 300px;
+}
+
+.library__header{
+    height: 50px;
+    width: 100%;
+    border-bottom: .5px solid white;
+    
+}
+
+/* Contenedor del disparador de menu*/
+
+.library__trigger h2 {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap; /* Evita que el texto salte de línea */
+}
+.library__button--toggle {
+    background-color: transparent;
+    transition: all 0.3s ease;
+    transform: translateX(-100%); 
+    position: absolute;
+    opacity: 0;
+}
+
+.library__trigger:hover .library__button--toggle {
+    transform: translateX(0); 
+    position: relative;
+    opacity: 1;
+}
+
+.library__trigger:hover h2 {
+    color: white;
+}
+
+.library-icon{
+    transition: .3s all ease;
+}
+
+.library-icon:hover{
+    color: white;
+}
+
+.header__button{
+    height: 25px;
+    width: 25px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.header__button:hover .library__icon{
+    color: white;
+}
+
+.header__button:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.library__icon{
+    height: var(--small);
+    width: var(--small);
+}
+
+
+
+.plus-icon{
+    height: 30px;
+    width: 30px;
+}
+
+/*  Menu de agregar a biblioteca */
+.plus__menu{
+    width: 460px;
+    background: #302f2f;
+    position: absolute;
+    margin: 8px;
+    border-radius: 8px;
+    padding: 3px;
+}
+
+
+.plus__option--icon {
+    width: 40px;
+    height: 40px;
+    background: #47474788;
+}
+
+.plus__menu--option {
+    background: transparent;
+    margin: 0 2px;
+    border-radius: 8px;
+}
+
+.plus__menu--option:hover {
+    background: #5a5a5a;
+}
+
+.plus__option--text h3{
+    font-size: var(--medium);
+}
+
+.plus__option--text p{
+    font-size: var(--small);
+}
+
+
+
+/* Pildoras */
+
+.pills__button{
+    border: none;
+    font-size: var(--small);
+    font-weight: 600;
+    color: #ddd;
+    background: #343434;
+    padding: 3px 10px;
+}
+
+.pills__button:hover{
+    background: #454545;
+    color: white;
+}
+
+/* biblioteca lista */
+
+.library__list {
+    scrollbar-gutter: stable; /* Reserva el espacio para que no "salte" el contenido */
+}
+
+.library__list::-webkit-scrollbar {
+    width: 12px; 
+}
+
+.library__list::-webkit-scrollbar-thumb{
+    background: transparent; 
+}
+
+.library__list:has(.list__item:hover)::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3) ;
+}
+
+
+.library__list::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.4) ;
+}
+
+
+.library__list{
+    padding-right: 0 !important;
+}
+
+
+
+.list__item--title{
+    font-size: var(--small);
+    font-weight: 600;
+}
+
+.list__item--subtitle{
+    font-size: var(--small);
+    color: #aaa;
+}
+
+.list__item--img{
+    height: 40px;
+    width: 40px;
+}
+
+.list__item:hover{
+    background: #282828 !important;
+    cursor: pointer;
+}
+
+.small-letter{
+    font-size: var(--small);
+}
+
+.hover-icon{
+    transition: .3s all ease;
+    margin-left: 3px;
+}
+
+.hover-icon:hover{
+    background-color: #212121 !important;
+}
+
+.hover-icon:hover .SearchIcon{
+    color: white;
+}
+
+.librarySearch{
+    position: relative;
+}
+
+.librarySearch__button {
+    z-index: 1;
+}
+
+
+
+.librarySearch__input{
+    width: 0;
+    opacity: 0;
+    border: none;
+    background: #242424;
+    color: white;
+    position: absolute;
+    padding: 6px 0 6px 40px;
+    border-radius: 4px;
+    transition: all .5s ease, opacity 0.2s ease, padding 0.3s ease;
+    outline: none;
+}
+
+
+
+.librarySearch__input--open{
+    width: 230px;
+    opacity: 1;
+    pointer-events: auto; 
+}
+
+/* Plus menu */
+
+.Modal{
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+}
+
+.libraryModal__element{
+    display: flex;
+    flex-direction: column;
+}
+
+.libraryModal__element input{
+    margin: 8px 0;
+}
+
+.libraryModal__form{
+    width: 300px;
+}
+
+
+.library--expand{
+    width: 100%;
+}
+
+
+/* responsive */
+
+@media (max-width: 580px) {
+    .library__container{
+        display: none !important; 
+    }
+}
