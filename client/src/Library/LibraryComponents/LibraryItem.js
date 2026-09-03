@@ -63,7 +63,6 @@ function LibraryItem({
                             ? "https://pbs.twimg.com/profile_images/1328597526539341830/tnMqYPBh_400x400.jpg" 
                             : "https://images.icon-icons.com/1674/PNG/512/list_111134.png"
                     } 
-                    alt={item.title}
                     alt={item.title} />
                 </div>
 

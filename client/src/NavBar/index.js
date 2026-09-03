@@ -4,9 +4,11 @@ import {ReactComponent as SearchSVG} from "./search.svg"
 import {ReactComponent as DowloadSVG} from "./dowload_arrow.svg"
 import {ReactComponent as BellSVG} from "./bell.svg"
 import {ReactComponent as HomeSVG} from "./home.svg"
+import { useNavigate } from 'react-router-dom';
 
 
 function NavBar({searcher, searchValue, setMainFilter}){
+    const navigate = useNavigate();
     return(
         // nav left 
         <nav className='navBar bg-black d-flex align-items-center justify-content-between px-3 p-1'>
@@ -45,23 +47,30 @@ function NavBar({searcher, searchValue, setMainFilter}){
 
 
 
-            <div className='nav-right navBar_options d-flex align-items-center gap-3'>
 
-                <button 
-                className='options_button d-flex gap-2 align-items-center'>
-                    <DowloadSVG />
-                    <span className='fw-bold'>
-                        Instalar aplicacion</span>
-                </button>
-
+            <div className='nav-right navBar_options d-flex align-items-center gap-4'>
                 <button className='options_button '>
                     <BellSVG />
                 </button>
 
-                <button className='options_button perfil'>
-                    S
+                <button className='options_button d-flex gap-2 align-items-center'>
+                    <DowloadSVG />
+                    <span className='fw-bold'>Instalar app</span>
                 </button>
 
+                <button 
+                    className='options_button register_btn fw-bold'
+                    onClick={() => navigate('/register')}
+                >
+                    Registrarte
+                </button>
+
+                <button 
+                    className='login_btn fw-bold'
+                    onClick={() => navigate('/login')}
+                >
+                    Iniciar sesión
+                </button>
             </div>
 
 

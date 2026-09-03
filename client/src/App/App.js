@@ -1,4 +1,5 @@
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {NavBar} from '../NavBar'
 import { Library } from '../Library/Library';
 import { RightPanel } from '../RightPanel';
@@ -6,19 +7,42 @@ import { Main } from '../Main/Main';
 import { Reproductive } from '../Reproductive';
 import { LibraryProvider } from '../Library/LibraryContext/LibraryContext';
 import React from 'react';
-
+import { UserList } from '../components/UsersList';
+import { SongsList } from '../components/songsList';
+import { UserPage } from '../pages/UsersPage';
+import { LoginPage } from '../pages/LoginPage';
+import { RegisterPage } from '../pages/RegisterPage';
 
 function App() {
+  return(
+    <Router>
+      <Routes>
+        <Route path='/' element={<SpotifyApp/>} />
+        <Route path='/users' element={<UserPage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<RegisterPage />} />
+      </Routes>
+    </Router>
+  )
+}
+
+
+function SpotifyApp() {
 
   const [activeTrack, setActiveTrack] = React.useState(null);
   const [navSearch, setNavSearch] = React.useState('');
-    const [mainFilter, setMainFilter] = React.useState('todo')
+  const [mainFilter, setMainFilter] = React.useState('todo')
 
 
 
 
   return (
     <>
+
+      <div>
+        {/* <UserList /> */}
+        {/* <SongsList /> */}
+      </div>
 
       <div className='page__container vh-100  d-flex flex-column bg-black text-white'>
         <NavBar 
