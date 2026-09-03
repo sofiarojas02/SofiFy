@@ -41,7 +41,7 @@ export const LoginPage = () => {
         }
 
         saveUser(user)
-        navigate('/')
+        navigate('/sofify')
     }catch (error) {
       setError('Error: ' + error.message);
     }

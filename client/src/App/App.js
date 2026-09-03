@@ -7,20 +7,28 @@ import { Main } from '../Main/Main';
 import { Reproductive } from '../Reproductive';
 import { LibraryProvider } from '../Library/LibraryContext/LibraryContext';
 import React from 'react';
-import { UserList } from '../components/UsersList';
-import { SongsList } from '../components/songsList';
 import { UserPage } from '../pages/UsersPage';
 import { LoginPage } from '../pages/LoginPage';
 import { RegisterPage } from '../pages/RegisterPage';
+import { ProtectedRoute } from '../components/ProtectedRoute';
 
 function App() {
   return(
     <Router>
       <Routes>
-        <Route path='/' element={<SpotifyApp/>} />
-        <Route path='/users' element={<UserPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
+        
+        <Route 
+          path='/sofify' 
+          element={
+            <ProtectedRoute>
+              <SpotifyApp/>
+            </ProtectedRoute>
+          } />
+
+          
+        <Route path='/users' element={<UserPage />} />
       </Routes>
     </Router>
   )
@@ -38,11 +46,6 @@ function SpotifyApp() {
 
   return (
     <>
-
-      <div>
-        {/* <UserList /> */}
-        {/* <SongsList /> */}
-      </div>
 
       <div className='page__container vh-100  d-flex flex-column bg-black text-white'>
         <NavBar 

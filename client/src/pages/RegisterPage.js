@@ -42,9 +42,6 @@ export const RegisterPage = () => {
     } catch (error) {
         alert('Error: ' + error.message);
   }
-
-
-    console.log('Datos de registro:', formData);
   };
 
   return (

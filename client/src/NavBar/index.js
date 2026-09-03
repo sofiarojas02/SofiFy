@@ -5,10 +5,52 @@ import {ReactComponent as DowloadSVG} from "./dowload_arrow.svg"
 import {ReactComponent as BellSVG} from "./bell.svg"
 import {ReactComponent as HomeSVG} from "./home.svg"
 import { useNavigate } from 'react-router-dom';
-
+import { useEffect, useRef, useState } from 'react';
+import { FiLogOut } from 'react-icons/fi';
+import { ChangeUserInfoFomr } from './NavBarComponents/ChangeUserInfoForm';
 
 function NavBar({searcher, searchValue, setMainFilter}){
     const navigate = useNavigate();
+    const [user, setUser] = useState(null)
+    const [infoUser, setInfoUser] = useState(false)
+
+        const infoUserRef = useRef()
+    
+        //Cerrar form de info
+        useEffect(()=>{
+            const handleClickOutside = (event) => {
+                if(infoUserRef.current && !infoUserRef.current.contains(event.target)){
+                    setInfoUser(false)
+                }
+            }
+    
+            document.addEventListener('mousedown', handleClickOutside);
+    
+            return () => {
+                document.removeEventListener('mousedown', handleClickOutside)
+            }
+        },[])
+
+
+
+    useEffect(()=>{
+        const userData = localStorage.getItem('user');
+        if(userData){
+            setUser(JSON.parse(userData))
+        }
+    },[])
+
+    const handleLogout = () =>{
+        localStorage.removeItem('user');
+        navigate('/login')
+    }
+
+    const editUser = () => {
+        setInfoUser((prev) => !prev)
+
+    }
+
+
     return(
         // nav left 
         <nav className='navBar bg-black d-flex align-items-center justify-content-between px-3 p-1'>
@@ -58,19 +100,60 @@ function NavBar({searcher, searchValue, setMainFilter}){
                     <span className='fw-bold'>Instalar app</span>
                 </button>
 
-                <button 
-                    className='options_button register_btn fw-bold'
-                    onClick={() => navigate('/register')}
-                >
-                    Registrarte
-                </button>
+                <div className='navbar-auth'>
+                    {user ? (
+                        <div 
+                        style={{display:'flex', alignItems: 'center', gap: '10px', position: 'relative'}}
+                        ref={infoUserRef}
+                        >
+                            <img
+                                onClick={editUser}
+                                className='auth-image'
+                                src={user.image_url ? user.image_url : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2pRSTXl8Gjd0r-OKMTi7dGQlYh3BF9rosMTL0y-ZZ7g&s=10'}
+                                alt={user.username}
+                                style={{ width: '35px', height: '35px', borderRadius: '50%' }}
+                            />
+                            <span>{user.username}</span>
 
-                <button 
-                    className='login_btn fw-bold'
-                    onClick={() => navigate('/login')}
-                >
-                    Iniciar sesión
-                </button>
+
+                            {infoUser && (
+                                <ChangeUserInfoFomr
+                                user = {user}
+                                />
+                            )}
+
+                            <button className="button logout-btn" title='Log out'
+                            onClick={handleLogout}
+                            >
+                                <span>
+                                <FiLogOut size={20} />
+                                </span>
+                                <span className="text">Log out</span>
+                            </button>
+
+                        </div>
+                    ) : (
+
+                        <div>
+                            <button 
+                                className='options_button register_btn fw-bold'
+                                onClick={() => navigate('/register')}
+                            >
+                                Registrarte
+                            </button>
+
+                            <button 
+                                className='login_btn fw-bold'
+                                onClick={() => navigate('/login')}
+                            >
+                                Iniciar sesión
+                            </button>
+                        </div>
+
+                    )
+                }
+                </div>
+
             </div>
 
 
