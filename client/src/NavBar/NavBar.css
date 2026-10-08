@@ -151,7 +151,6 @@ nav{
 .button:hover {
   gap: 5px;
     border-radius: 10px;
-    border: solid .5px #222;
     min-width: max-content;
 }
 

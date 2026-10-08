@@ -31,10 +31,10 @@ export function ChangeUserInfoFomr ({user}) {
             })
 
             saveUser(res.data)
-            window.location.reload();
+            document.location.reload()
             setSuccess('Perfil actualizado correctamente')
         }catch (err) {
-            setError('Error al actualizar: ' + err.message)
+            setError('Error al actualizar: ' + (err.response?.data?.error || err.message))
         } finally {
             setLoading(false)
         }
@@ -48,7 +48,7 @@ export function ChangeUserInfoFomr ({user}) {
         <div className="profile-dropdown">
             <h3 className="dropdown-title">Editar Perfil</h3>
 
-            <form className="profile-form">
+            <form className="profile-form" onSubmit={handleSubmint}>
             <div className="form-group">
                 <label>Nombre de usuario</label>
                 <input 
@@ -83,10 +83,10 @@ export function ChangeUserInfoFomr ({user}) {
             </div>
 
             <button 
-            onClick={handleSubmint}
+            disabled={loading}
             type="submit" 
             className="save-btn">
-                Guardar cambios
+                {loading ? 'Guardando...' : 'Guardar cambios'}
             </button>
             </form>
         </div>

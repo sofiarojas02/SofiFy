@@ -7,12 +7,15 @@ import { useLocalStorage } from '../App/useLocalStorage';
 
 export const RegisterPage = () => {
     const navigate = useNavigate();
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
     const [formData, setFormData] = useState({
         username: '',
         email: '',
         password_hash: '',
         description: '',
-        image_url: ''
+        image_url: '',
+        role: '1' //User por defecto
     });
 
   const {saveItem: saveUser} = useLocalStorage('user', null)
@@ -28,6 +31,8 @@ export const RegisterPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+      setError(''); 
+    setSuccess('');
 
     try{
         if(!formData.username || !formData.email || !formData.password_hash){
@@ -35,12 +40,29 @@ export const RegisterPage = () => {
             return;
         }
 
-        const res = await api.post('/users' , formData)
+        const res = await api.post('/users' , {
+          username: formData.username,
+          email: formData.email,
+          password_hash: formData.password_hash,
+          description: formData.description,
+          image_url: formData.image_url
+        })
+
+        const newUser = res.data;
+
+        await api.post(`/users/${newUser.id}/roles`,{
+          roleId : parseInt(formData.role)
+        })
+
         saveUser(res.data)
 
         navigate('/login')
     } catch (error) {
-        alert('Error: ' + error.message);
+    if (error.response?.data?.error) {
+      setError(error.response.data.error);
+    } else {
+      setError('Error al registrarse: ' + error.message);
+    }
   }
   };
 
@@ -53,6 +75,18 @@ export const RegisterPage = () => {
       <h1 className="register-main-title">
         Regístrate para empezar a escuchar contenido
       </h1>
+
+      {error && (
+        <div className='error-message'>
+          {error}
+        </div>
+      )}
+
+      {success && (
+        <div className='success-message'>
+          {success}
+        </div>
+      )}
 
       <div className="register-content">
         {/* Columna Izquierda: Formulario */}
@@ -124,6 +158,19 @@ export const RegisterPage = () => {
                 onChange={handleChange}
               />
             </div>
+
+            <div className="mb-3">
+              <label className="form-label fw-semibold small">Tipo de cuenta</label>
+              <select
+                name="role"
+                className="auth-input"
+                value={formData.role}
+                onChange={handleChange}
+              >
+                  <option value="1" className='bg-black'>Usuario (escuchar música)</option>
+                  <option value="2" className='bg-black'>Artista (crear canciones)</option>
+              </select>
+          </div>
 
             <button type="submit" className="auth-button-primary mt-2">
               Registrarse
